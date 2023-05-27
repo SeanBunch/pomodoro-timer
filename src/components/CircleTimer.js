@@ -10,6 +10,7 @@ const CircleTimer = ({ key = 1, timer = 10, animate = true, children }) => {
       colors={["#780000", "#780000", "#A30000", "#A30000"]}
       strokeWidth={6}
       trailColor="#b46d6d"
+      // style={{"z-index": -1}}
     //   onComplete={()=> stopAnimate()}
     >
       {({ remainingTime }) => remainingTime}

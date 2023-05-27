@@ -23,6 +23,9 @@ body {
   justify-content: center;
   align-items: center;
 }
+.space-btw {
+  justify-content: space-between;
+}
 li {
   list-style: none;
 }
