@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Modal.css";
 
-function PopupModal({ setShowCircle, timer, setTimer }) {
+function PopupModal({ setShowCircle, timer, setTimer, setDuration }) {
   const [showModal, setShowModal] = useState(false);
   
 
@@ -17,8 +17,9 @@ function PopupModal({ setShowCircle, timer, setTimer }) {
 
   const changeHandler = (key, value) => {
     setTimer({ ...timer, [key]: parseInt(value) });
+    setDuration(parseInt(value))
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     // Do something with the selected inputs

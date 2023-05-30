@@ -9,25 +9,25 @@ function App() {
   const [ startAnimation, setStartAnimation ] = useState(false);
   const [ btnActive, setBtnActive ] = useState(false);
   const [ key, setKey ] = useState(0);
-  const [ duration, setDuration ] = useState("pomoTime")
+  const [ duration, setDuration ] = useState(25)
   const [ timer, setTimer ] = useState({
     pomoTime: 25,
     shortBreak: 5,
     longBreak: 15,
   });
-
+  
   const timerBtnHandler = (btnName) => {
     setBtnActive(false);
     setStartAnimation(false);
     
     if(btnName === "pomoTime") {
-      setDuration("pomoTime")
+      setDuration(timer.pomoTime)
       setKey(prevKey => prevKey + 1);
     } else if (btnName ==="shortBreak") {
-      setDuration("shortBreak")
+      setDuration(timer.shortBreak)
       setKey(prevKey => prevKey + 1);
     } else if (btnName === "longBreak") {
-      setDuration("longBreak")
+      setDuration(timer.longBreak)
       setKey(prevKey => prevKey + 1);
     };
 
@@ -49,7 +49,12 @@ function App() {
         <div className="container row even-space mw50 mb50 bg-dkred h50 bdr10">
           <h2 className="btn-lg dk-red wt ml20">Pomodoro</h2>
           <div className="container grow row left">
-            <PopupModal setShowCircle={setShowCircle} timer={timer} setTimer={setTimer}/>
+            <PopupModal 
+            setShowCircle={setShowCircle} 
+            timer={timer} 
+            setTimer={setTimer} 
+            setDuration={setDuration}
+            />
             {/* <button className="bg-black bdr10 wt h30 w100px">Settings</button> */}
             <button className="bg-black bdr10 wt  h30 w100px ml20 mr20">
               Login

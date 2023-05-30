@@ -3,21 +3,6 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 const CircleTimer = ({ keyValue, timer, animate, children, duration }) => {
 
-  useEffect(()=> {
-    
-    function timeSelect() {
-      if (duration === "pomoTime") {
-        console.log(typeof timer.pomoTime)
-        return timer.pomoTime;
-      } else if (duration === "shortBreak") {
-        return timer.shortBreak;
-      } else if (duration === "longBreak") {
-        return timer.longBreak;
-      }
-    }
-    timeSelect()
-}, [duration])
-
 
   const renderTime = ({ remainingTime }) => {
     if (remainingTime === 0) {
