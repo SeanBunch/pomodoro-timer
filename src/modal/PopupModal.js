@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import "./Modal.css";
 
-function PopupModal({ setShowCircle }) {
+function PopupModal({ setShowCircle, timer, setTimer }) {
   const [showModal, setShowModal] = useState(false);
-  const [timer, setTimer] = useState({
-    pomoTime: 25,
-    shortBreak: 5,
-    longBreak: 15,
-  });
+  
 
   const openModal = () => {
     setShowCircle(false);

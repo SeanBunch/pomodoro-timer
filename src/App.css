@@ -32,6 +32,9 @@ li {
 button {
   border: none;
 }
+button:hover {
+  cursor: pointer;
+}
 .mw50 {
   min-width: 50%;
 }
@@ -46,6 +49,19 @@ button {
 }
 .frame {
   border: 5px solid black;
+}
+.btnborder-red {
+  border: 5px outset #780000;
+}
+.btnborder-ltred {
+  border: 5px outset #b40000;
+}
+.btnborder-blk {
+  border: 5px outset black;
+}
+.btnfocus:focus {
+  border: 5px outset #b40000;
+
 }
 .even {
   justify-content: space-evenly;
@@ -62,7 +78,9 @@ button {
 .bg-purple {
   background-color: #544269;
 }
-
+.bg-ltred {
+  background-color: #924d4d;
+}
 .bdr10 {
   border-radius: 10px;
 }
@@ -91,6 +109,12 @@ button {
 .mb50 {
   margin-bottom: 50px;
 }
+.mb100 {
+  margin-bottom: 100px;
+}
+.mt20 {
+  margin-top: 20px;
+}
 .ml20 {
   margin-left: 20px;
 }
@@ -105,6 +129,12 @@ button {
 }
 .h30 {
   height: 30px;
+}
+.font80 {
+  font-size: 80px;
+}
+.font25 {
+  font-size: 25px;
 }
 /* 003049 dark blue */
 /* 669bbc light blue */
