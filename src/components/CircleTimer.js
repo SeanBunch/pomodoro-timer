@@ -11,7 +11,7 @@ const CircleTimer = ({ keyValue, timer, animate, children, duration }) => {
   
     return (
       <div className="timer">
-        <div className="font80 wt">{remainingTime}</div>
+        <div className="font80 wt">{parseInt(remainingTime / 60)}</div>
       </div>
     );
   };
@@ -19,7 +19,7 @@ const CircleTimer = ({ keyValue, timer, animate, children, duration }) => {
     <CountdownCircleTimer
       key={keyValue}
       isPlaying={animate}
-      duration={duration}
+      duration={duration * 60}
       colors={["#780000", "#780000", "#A30000", "#A30000"]}
       strokeWidth={6}
       trailColor="#b46d6d"
