@@ -61,13 +61,18 @@ button:hover {
 }
 .btnfocus:focus {
   border: 5px outset #b40000;
-
+}
+.noborder {
+  border: none;
 }
 .even {
   justify-content: space-evenly;
 }
 .wt {
   color: #fafafa;
+}
+.bt {
+  color: black;
 }
 .bg-dkred {
   background-color: #780000;

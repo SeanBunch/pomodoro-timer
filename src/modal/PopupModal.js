@@ -44,7 +44,7 @@ function PopupModal({ setShowCircle, timer, setTimer, setDuration }) {
                     <input
                       type="number"
                       value={timer.pomoTime}
-                      onChange={(e) => {changeHandler("pomoTime", e.target.value);}}
+                      onChange={(e) => {changeHandler("pomoTime", e.target.value)}}
                       required
                     />
                   </div>
@@ -53,7 +53,7 @@ function PopupModal({ setShowCircle, timer, setTimer, setDuration }) {
                      <input
                        type="number"
                        value={timer.shortBreak}
-                       onChange={(e) => {changeHandler("shortBreak", e.target.value);}}
+                       onChange={(e) => {changeHandler("shortBreak", e.target.value)}}
                        required
                      />
                   </div>
@@ -62,7 +62,7 @@ function PopupModal({ setShowCircle, timer, setTimer, setDuration }) {
                      <input
                        type="number"
                        value={timer.longBreak}
-                       onChange={(e) => {changeHandler("longBreak", e.target.value);}}
+                       onChange={(e) => {changeHandler("longBreak", e.target.value)}}
                        required
                      />
                   </div>

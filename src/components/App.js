@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import CircleTimer from "./CircleTimer";
 import PopupModal from "../modal/PopupModal";
+import AddTaskModal from "../modal/AddTaskModal";
+import TaskList from "./TaskList";
 import "../App.css";
 
 function App() {
@@ -9,12 +11,18 @@ function App() {
   const [ startAnimation, setStartAnimation ] = useState(false);
   const [ btnActive, setBtnActive ] = useState(false);
   const [ key, setKey ] = useState(0);
-  const [ duration, setDuration ] = useState(25)
+  const [ duration, setDuration ] = useState(25);
   const [ timer, setTimer ] = useState({
     pomoTime: 25,
     shortBreak: 5,
     longBreak: 15,
   });
+  const [ taskList, setTaskList ] = useState([{
+    id: 0, 
+    task: "", 
+    complete: false
+  },]);
+
   
   const timerBtnHandler = (btnName) => {
     setBtnActive(false);
@@ -92,8 +100,11 @@ function App() {
             </button>
           </div>
           <div className="mw50">
-            <button className="bdr10 bg-purple wt w100 h30 btnborder-blk">+Add Task</button>
+            <AddTaskModal taskList={taskList} setTaskList={setTaskList}/>
           </div>
+          <div>
+            <TaskList taskList={taskList}/>
+         </div>
         </div>
       </div>
     </main>
