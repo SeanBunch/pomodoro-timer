@@ -100,7 +100,7 @@ function App() {
               {startAnimation ? "PAUSE" : "START" }
             </button>
           </div>
-          <div className="mw50">
+          <div className="mw50 mb50">
             <AddTaskModal taskList={taskList} setTaskList={setTaskList}/>
           </div>
           <div>
