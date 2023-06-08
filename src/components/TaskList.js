@@ -3,7 +3,7 @@ import React from "react";
 function TaskList ({ taskList }) {
 
 // when Add Task is submitted the task should be displayed by this component. 
-console.log("frorm tasklist", taskList)
+console.log("from tasklist", taskList)
 
 
     return (

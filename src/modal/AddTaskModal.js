@@ -4,7 +4,9 @@ import "./Modal.css";
 
 function AddTaskModal({ taskList, setTaskList }) {
   const [ showModal, setShowModal ] = useState(false);
-console.log("taskList from addtask:", taskList)
+  const [ newTask, setNewTask ] = useState({task: "", complete: false})
+
+console.log("newTask from addtask:", newTask, "taskList:", taskList)
   const openModal = () => {
     // setShowCircle(false);
     setShowModal(true);
@@ -16,14 +18,14 @@ console.log("taskList from addtask:", taskList)
   };
 
   const changeHandler = (task, value) => {
-      setTaskList(...taskList, {[task]: value});
+       setNewTask((newTask) => ({...newTask, [task]: value}));
     };
     
     const handleSubmit = (e) => {
       e.preventDefault();
 
       const newId = RandomIdGenerator()
-      setTaskList(...taskList, {id: newId});
+      setTaskList({...taskList, [newId]: newTask});
 
     closeModal();
   };

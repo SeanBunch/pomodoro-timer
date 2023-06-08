@@ -17,11 +17,12 @@ function App() {
     shortBreak: 5,
     longBreak: 15,
   });
-  const [ taskList, setTaskList ] = useState([{
-    id: 0, 
-    task: "", 
-    complete: false
-  },]);
+  const [ taskList, setTaskList ] = useState({
+    0: {
+      task: "", 
+      complete: false
+    }, 
+  });
 
   
   const timerBtnHandler = (btnName) => {
