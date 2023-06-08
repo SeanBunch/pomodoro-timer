@@ -18,7 +18,13 @@ console.log("newTask from addtask:", newTask, "taskList:", taskList)
   };
 
   const changeHandler = (task, value) => {
-       setNewTask((newTask) => ({...newTask, [task]: value}));
+    const specialChars = /[`!@#$%^&*()_+\=\[\]{};':"\\|,.<>\/?~]/;
+    if(specialChars.test(value)) {
+      alert("Task must not include special characters !@#$%^&*()_+=[]{};':|,.<>/?~")
+      
+    } else {
+      setNewTask((newTask) => ({...newTask, [task]: value}));
+    }
     };
     
     const handleSubmit = (e) => {
