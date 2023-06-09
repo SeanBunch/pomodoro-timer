@@ -13,3 +13,10 @@ Still need to add login and add task features. However the pomodoro timer featur
 
 ### Mobile View
 ![mobileView](./public/2.PNG)
+
+
+### Updates
+
+The add task works. I added some security validation to the input field to prevent special charters being added with an alert to the user that special characters may not be used when creating tasks. 
+
+The backend branch was started and soon I will convert the app to a full stack application with log in features. The front-end portion is mostly finished with some minor updates to the mobile UI design remaining. The app works as intended as a frontend application now the transition from frontend to full stack is next. 
