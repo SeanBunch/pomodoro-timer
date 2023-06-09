@@ -6,14 +6,11 @@ function AddTaskModal({ taskList, setTaskList }) {
   const [ showModal, setShowModal ] = useState(false);
   const [ newTask, setNewTask ] = useState({task: "", complete: false})
 
-console.log("newTask from addtask:", newTask, "taskList:", taskList)
   const openModal = () => {
-    // setShowCircle(false);
     setShowModal(true);
   };
 
   const closeModal = () => {
-    // setShowCircle(true);
     setShowModal(false);
   };
 

@@ -9,7 +9,6 @@ h2 {
   }
   
   * {
-    /* font-family: "Raleway"; */
     box-sizing: border-box;
   }
   
@@ -18,8 +17,6 @@ h2 {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    /* background-color: #00BAF0; */
-    /* background: linear-gradient(to left, #f46b45, #eea849); */
     color: #000000;
     height: 50px;
     padding: 1em;
