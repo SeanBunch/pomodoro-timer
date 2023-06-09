@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import RandomIdGenerator from "../utilities/RandomIdGenerator"
-import "./Modal.css";
+import "../styling/Modal.css";
 
 function AddTaskModal({ taskList, setTaskList }) {
   const [ showModal, setShowModal ] = useState(false);
@@ -32,9 +32,6 @@ function AddTaskModal({ taskList, setTaskList }) {
 
     closeModal();
   };
-  const deleteHandler = () => {
-
-  }
 
   return (
     <div>
@@ -64,22 +61,16 @@ function AddTaskModal({ taskList, setTaskList }) {
                 </div>
                 <div className="container space-btw">
                   <button
-                    onClick={deleteHandler}
-                    className="bdr10 bt h30 w100px"
-                  >
-                    Delete
-                  </button>
-                  <button
-                    onClick={closeModal}
-                    className="bdr10 bt h30 w100px"
-                  >
-                    Cancel
-                  </button>
-                  <button
                     type="submit"
                     className="bg-black bdr10 wt h30 w100px"
                   >
                     Save
+                  </button>
+                  <button
+                    onClick={closeModal}
+                    className="bg-dkred bdr10 wt h30 w100px"
+                  >
+                    Cancel
                   </button>
                 </div>
               </form>

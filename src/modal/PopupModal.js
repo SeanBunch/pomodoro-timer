@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Modal.css";
+import "../styling/Modal.css";
 
 function PopupModal({ setShowCircle, timer, setTimer, setDuration }) {
   const [showModal, setShowModal] = useState(false);

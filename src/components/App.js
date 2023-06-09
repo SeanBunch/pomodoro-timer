@@ -3,7 +3,7 @@ import CircleTimer from "./CircleTimer";
 import PopupModal from "../modal/PopupModal";
 import AddTaskModal from "../modal/AddTaskModal";
 import TaskList from "./TaskList";
-import "../App.css";
+import "../styling/App.css";
 import Hamburger from "./Hamburger";
 
 function App() {
