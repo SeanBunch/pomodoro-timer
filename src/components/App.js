@@ -4,6 +4,7 @@ import PopupModal from "../modal/PopupModal";
 import AddTaskModal from "../modal/AddTaskModal";
 import TaskList from "./TaskList";
 import "../App.css";
+import Hamburger from "./Hamburger";
 
 function App() {
 
@@ -58,16 +59,21 @@ function App() {
         <div className="container row even-space mw50 mb50 bg-dkred h50 bdr10">
           <h2 className="btn-lg dk-red wt ml20">Pomodoro</h2>
           <div className="container grow row left">
-            <PopupModal 
+      <Hamburger
+       setShowCircle={setShowCircle} 
+       timer={timer} 
+       setTimer={setTimer} 
+       setDuration={setDuration}
+      />
+            {/* <PopupModal 
             setShowCircle={setShowCircle} 
             timer={timer} 
             setTimer={setTimer} 
             setDuration={setDuration}
             />
-            {/* <button className="bg-black bdr10 wt h30 w100px">Settings</button> */}
             <button className="bg-black bdr10 wt  h30 w100px ml20 mr20">
               Login
-            </button>
+            </button> */}
           </div>
         </div>
         <div className="container mw50 column">
