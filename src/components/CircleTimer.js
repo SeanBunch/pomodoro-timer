@@ -11,7 +11,18 @@ const CircleTimer = ({ keyValue, timer, animate, children, duration }) => {
   
     return (
       <div className="timer">
-        <div className="font80 wt">{parseInt(remainingTime / 60)}</div>
+        {/* <div className="font80 wt">{parseInt(remainingTime / 60)}</div> */}
+        <div 
+        className="font80 wt"
+        >
+          {parseInt(remainingTime / 60)}
+        </div>
+          <div
+          className="font20 wt"
+          >
+            {remainingTime%60 === 0 ? null: parseInt(remainingTime % 60)}
+
+          </div>
       </div>
     );
   };
