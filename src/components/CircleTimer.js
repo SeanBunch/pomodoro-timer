@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
+import { setDuration } from "./circleTimerSlice";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
-const CircleTimer = ({ keyValue, timer, animate, children, duration }) => {
+const CircleTimer = ({ keyValue, timer, animate, children }) => {
 
+  const duration = useSelector((state) => state.circleTimer)
 
   const renderTime = ({ remainingTime }) => {
     if (remainingTime === 0) {
@@ -24,7 +27,7 @@ const CircleTimer = ({ keyValue, timer, animate, children, duration }) => {
     <CountdownCircleTimer
       key={keyValue}
       isPlaying={animate}
-      duration={duration * 60}
+      duration={Number(duration * 60)}
       colors={["#780000", "#780000", "#A30000", "#A30000"]}
       strokeWidth={6}
       trailColor="#b46d6d"

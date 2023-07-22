@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import "../styling/Modal.css";
+import { useSelector, useDispatch } from "react-redux";
+import { setPomoTime, setShortBreak, setLongBreak } from "../popupModalSlice";
+import "../../styling/Modal.css";
 
-function PopupModal({ setShowCircle, timer, setTimer, setDuration }) {
-  const [showModal, setShowModal] = useState(false);
-  
+function PopupModal({ setShowCircle }) {
+  const [ showModal, setShowModal ] = useState(false);
+  const popup = useSelector((state) => state.popup);
+  const dispatch = useDispatch();
 
   const openModal = () => {
     setShowCircle(false);
@@ -13,11 +16,6 @@ function PopupModal({ setShowCircle, timer, setTimer, setDuration }) {
   const closeModal = () => {
     setShowCircle(true);
     setShowModal(false);
-  };
-
-  const changeHandler = (key, value) => {
-    setTimer({ ...timer, [key]: parseInt(value) });
-    setDuration(parseInt(value))
   };
   
   const handleSubmit = (e) => {
@@ -43,8 +41,8 @@ function PopupModal({ setShowCircle, timer, setTimer, setDuration }) {
                     <h2>Pomo Time</h2>
                     <input
                       type="number"
-                      value={timer.pomoTime}
-                      onChange={(e) => {changeHandler("pomoTime", e.target.value)}}
+                      value={popup.pomoTime}
+                      onChange={(e) => dispatch(setPomoTime(e.target.value))}
                       required
                     />
                   </div>
@@ -52,8 +50,8 @@ function PopupModal({ setShowCircle, timer, setTimer, setDuration }) {
                     <h2>Short Break</h2>
                      <input
                        type="number"
-                       value={timer.shortBreak}
-                       onChange={(e) => {changeHandler("shortBreak", e.target.value)}}
+                       value={popup.shortBreak}
+                       onChange={(e) => dispatch(setShortBreak(e.target.value))}
                        required
                      />
                   </div>
@@ -61,8 +59,8 @@ function PopupModal({ setShowCircle, timer, setTimer, setDuration }) {
                     <h2>Long Break</h2>
                      <input
                        type="number"
-                       value={timer.longBreak}
-                       onChange={(e) => {changeHandler("longBreak", e.target.value)}}
+                       value={popup.longBreak}
+                       onChange={(e) => dispatch(setLongBreak(e.target.value))}
                        required
                      />
                   </div>
