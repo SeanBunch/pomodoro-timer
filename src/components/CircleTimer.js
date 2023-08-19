@@ -1,11 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { setDuration } from "./circleTimerSlice";
+// import { setDuration } from "./circleTimerSlice";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
-const CircleTimer = ({ keyValue, timer, animate, children }) => {
+const CircleTimer = ({ timer, children }) => {
 
-  const duration = useSelector((state) => state.circleTimer)
+  const duration = useSelector((state) => state.circleTimer.duration)
+  const keyValue = useSelector((state) => state.circleTimer.keyValue)
+  const animate = useSelector((state) => state.circleTimer.animate)
 
   const renderTime = ({ remainingTime }) => {
     if (remainingTime === 0) {

@@ -5,8 +5,14 @@ import AddTaskModal from "../components/modal/AddTaskModal";
 import TaskList from "./TaskList";
 import "../styling/App.css";
 import Hamburger from "./Hamburger";
+import { useSelector, useDispatch } from "react-redux";
+import { setAnimate } from "./circleTimerSlice";
 
 function App() {
+  const animate = useSelector((state) => state.circleTimer.animate);
+  const dispatch = useDispatch();
+
+
   const [showCircle, setShowCircle] = useState(true);
   const [startAnimation, setStartAnimation] = useState(false);
   const [btnActive, setBtnActive] = useState(false);
@@ -41,12 +47,10 @@ function App() {
   };
 
   const startHandler = () => {
-    if (!startAnimation) {
-      setBtnActive(true);
-      setStartAnimation(true);
+    if (!animate) {
+      dispatch(setAnimate(true));
     } else {
-      setBtnActive(false);
-      setStartAnimation(false);
+      dispatch(setAnimate(false));
     }
   };
 
@@ -103,21 +107,21 @@ function App() {
           <div className="div-block-4 mb100">
             {showCircle ? (
               <CircleTimer
-                animate={startAnimation}
-                timer={timer}
-                keyValue={key}
-                duration={duration}
+                // duration={duration}
+                // keyValue={key}
+                // animate={startAnimation}
+                // timer={timer}
               />
             ) : null}
             <button
               className={
-                btnActive
+                animate
                   ? "bdr10 bg-ltred wt w100 h50 mt20 btnborder-blk"
                   : "bdr10 bg-dkred wt w100 h50 mt20 btnborder-blk"
               }
               onClick={startHandler}
             >
-              {startAnimation ? "PAUSE" : "START"}
+              {animate ? "PAUSE" : "START"}
             </button>
           </div>
           <div className="mw50 mb50">
