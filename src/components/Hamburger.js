@@ -2,7 +2,7 @@ import React from "react";
 import "../styling/Hamburger.css";
 import PopupModal from "../components/modal/PopupModal";
 
-function Hamburger({ setShowCircle, timer, setTimer, setDuration }) {
+function Hamburger({ setShowCircle }) {
   return (
     <div>
       <section className="top-nav">
@@ -14,9 +14,6 @@ function Hamburger({ setShowCircle, timer, setTimer, setDuration }) {
           <li>
             <PopupModal
               setShowCircle={setShowCircle}
-              timer={timer}
-              setTimer={setTimer}
-              setDuration={setDuration}
             />
           </li>
           <li>

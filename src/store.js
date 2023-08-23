@@ -4,7 +4,6 @@ import circleTimerSlice from "./components/circleTimerSlice";
 
 export const store = configureStore({
     reducer: {
-        popup: popupSlice,
         circleTimer: circleTimerSlice,
     },
 });

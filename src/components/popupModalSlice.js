@@ -24,6 +24,6 @@ const popupSlice = createSlice({
     }
 });
 
-export const { setPomoTime, setShortBreak, setLongBreak } = popupSlice.actions;
+// export const { setPomoTime, setShortBreak, setLongBreak } = popupSlice.actions;
 
-export default popupSlice.reducer;
+// export default popupSlice.reducer;

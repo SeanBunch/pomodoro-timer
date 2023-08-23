@@ -6,23 +6,15 @@ import TaskList from "./TaskList";
 import "../styling/App.css";
 import Hamburger from "./Hamburger";
 import { useSelector, useDispatch } from "react-redux";
-import { setAnimate } from "./circleTimerSlice";
+import { setAnimate, setDuration, setKeyValue } from "./circleTimerSlice";
 
 function App() {
-  const animate = useSelector((state) => state.circleTimer.animate);
+
+  const timer = useSelector((state) => state.circleTimer.value);
   const dispatch = useDispatch();
 
-
   const [showCircle, setShowCircle] = useState(true);
-  const [startAnimation, setStartAnimation] = useState(false);
-  const [btnActive, setBtnActive] = useState(false);
   const [key, setKey] = useState(0);
-  const [duration, setDuration] = useState(25);
-  const [timer, setTimer] = useState({
-    pomoTime: 25,
-    shortBreak: 5,
-    longBreak: 15,
-  });
   const [taskList, setTaskList] = useState({
     0: {
       task: "",
@@ -31,27 +23,27 @@ function App() {
   });
 
   const timerBtnHandler = (btnName) => {
-    setBtnActive(false);
-    setStartAnimation(false);
+    dispatch(setAnimate(false));
 
     if (btnName === "pomoTime") {
-      setDuration(timer.pomoTime);
-      setKey((prevKey) => prevKey + 1);
+      dispatch(setDuration(timer.pomoTime));
+      dispatch(setKeyValue());
     } else if (btnName === "shortBreak") {
-      setDuration(timer.shortBreak);
-      setKey((prevKey) => prevKey + 1);
+      dispatch(setDuration(timer.shortBreak));
+      dispatch(setKeyValue());
     } else if (btnName === "longBreak") {
-      setDuration(timer.longBreak);
-      setKey((prevKey) => prevKey + 1);
-    }
+      dispatch(setDuration(timer.longBreak));
+      dispatch(setKeyValue());
+    };
   };
 
   const startHandler = () => {
-    if (!animate) {
+    if (!timer.animate) {
       dispatch(setAnimate(true));
+
     } else {
       dispatch(setAnimate(false));
-    }
+    };
   };
 
   return (
@@ -62,19 +54,8 @@ function App() {
           <div className="container grow row left">
             <Hamburger
               setShowCircle={setShowCircle}
-              timer={timer}
-              setTimer={setTimer}
               setDuration={setDuration}
             />
-            {/* <PopupModal 
-            setShowCircle={setShowCircle} 
-            timer={timer} 
-            setTimer={setTimer} 
-            setDuration={setDuration}
-            />
-            <button className="bg-black bdr10 wt  h30 w100px ml20 mr20">
-              Login
-            </button> */}
           </div>
         </div>
         <div className="container mw50 column">
@@ -105,23 +86,16 @@ function App() {
             </button>
           </div>
           <div className="div-block-4 mb100">
-            {showCircle ? (
-              <CircleTimer
-                // duration={duration}
-                // keyValue={key}
-                // animate={startAnimation}
-                // timer={timer}
-              />
-            ) : null}
+            {showCircle ? (<CircleTimer />) : null}
             <button
               className={
-                animate
+                timer.animate
                   ? "bdr10 bg-ltred wt w100 h50 mt20 btnborder-blk"
                   : "bdr10 bg-dkred wt w100 h50 mt20 btnborder-blk"
               }
               onClick={startHandler}
             >
-              {animate ? "PAUSE" : "START"}
+              {timer.animate ? "PAUSE" : "START"}
             </button>
           </div>
           <div className="mw50 mb50">

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setPomoTime, setShortBreak, setLongBreak } from "../popupModalSlice";
+import { setDuration, setPomoTime, setShortBreak, setLongBreak } from "../circleTimerSlice";
 import "../../styling/Modal.css";
 
 function PopupModal({ setShowCircle }) {
   const [ showModal, setShowModal ] = useState(false);
-  const popup = useSelector((state) => state.popup);
+  const timer = useSelector((state) => state.circleTimer.value);
   const dispatch = useDispatch();
 
   const openModal = () => {
@@ -14,13 +14,13 @@ function PopupModal({ setShowCircle }) {
   };
 
   const closeModal = () => {
+    dispatch(setDuration(timer.pomoTime));
     setShowCircle(true);
     setShowModal(false);
   };
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Do something with the selected inputs
     closeModal();
   };
 
@@ -41,7 +41,7 @@ function PopupModal({ setShowCircle }) {
                     <h2>Pomo Time</h2>
                     <input
                       type="number"
-                      value={popup.pomoTime}
+                      value={timer.pomoTime}
                       onChange={(e) => dispatch(setPomoTime(e.target.value))}
                       required
                     />
@@ -50,7 +50,7 @@ function PopupModal({ setShowCircle }) {
                     <h2>Short Break</h2>
                      <input
                        type="number"
-                       value={popup.shortBreak}
+                       value={timer.shortBreak}
                        onChange={(e) => dispatch(setShortBreak(e.target.value))}
                        required
                      />
@@ -59,7 +59,7 @@ function PopupModal({ setShowCircle }) {
                     <h2>Long Break</h2>
                      <input
                        type="number"
-                       value={popup.longBreak}
+                       value={timer.longBreak}
                        onChange={(e) => dispatch(setLongBreak(e.target.value))}
                        required
                      />
@@ -68,15 +68,10 @@ function PopupModal({ setShowCircle }) {
                 <div className="container space-btw">
                   <button
                     type="submit"
+                    onClick={closeModal}
                     className="bg-black bdr10 wt h30 w100px"
                   >
-                    Submit
-                  </button>
-                  <button
-                    onClick={closeModal}
-                    className="bg-dkred bdr10 wt h30 w100px"
-                  >
-                    Cancel
+                    Confirm
                   </button>
                 </div>
               </form>

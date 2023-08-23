@@ -3,32 +3,32 @@ import { createSlice } from "@reduxjs/toolkit";
 const circleTimerSlice = createSlice({
     name: "circleTimer",
     initialState: {
-        animate: false,
-        duration: 25,
-        pomoTime: 25,
-        shortBreak: 5,
-        longBreak: 15,
-        keyValue: 0,
+        value: {
+            animate: false,
+            duration: 25,
+            pomoTime: 25,
+            shortBreak: 5,
+            longBreak: 15,
+            keyValue: 0,
+        },
     },
     reducers: {
         setAnimate: (state, action) => {
-            state.animate = action.payload;
+            state.value.animate = action.payload;
         },
         setDuration: (state, action) => {
-            state.duration = action.payload;
+            state.value.duration = action.payload;
         },
         setPomoTime: (state, action) => {
-            state.pomoTime = action.payload;
+            state.value.pomoTime = action.payload;
         },
         setShortBreak: (state, action) => {
-            state.shortBreak = action.payload;
+            state.value.shortBreak = action.payload;
         },
         setLongBreak: (state, action) => {
-            state.longBreak = action.payload;
+            state.value.longBreak = action.payload;
         },
-        setKeyValue: (state, action) => {
-            state.keyValue = action.payload;
-        },
+        setKeyValue: (state) => {state.value.keyValue += 1},
     },
 });
 
