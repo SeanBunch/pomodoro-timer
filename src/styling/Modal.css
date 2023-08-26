@@ -41,3 +41,25 @@ body.active-modal {
     right: 10px;
     padding: 5px 7px;
 }
+
+.center-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    display: flex;
+  }
+  .column {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .row {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .space-btw {
+    justify-content: space-between;
+  }
