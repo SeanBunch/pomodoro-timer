@@ -1,5 +1,6 @@
 body.active-modal {
     overflow-y: hidden;
+    /* display: flex; */
 }
 
 .btn-modal {
@@ -24,14 +25,14 @@ body.active-modal {
 }
 .modal-content {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     line-height: 1.4;
     background: #f1f1f1;
     padding: 14px 28px;
     border-radius: 20px;
-    max-width: 600px;
+    /* max-width: 600px; */
     min-width: 300px;
 }
 
@@ -62,4 +63,13 @@ body.active-modal {
   }
   .space-btw {
     justify-content: space-between;
+  }
+  .grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+  .bd {
+    border: solid red 5px;
+
   }
