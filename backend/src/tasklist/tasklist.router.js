@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const controller = require("./tasklist.controller");
+const methodNotAllowed = require("../errors/methodNotAllowed");
 
 router
   .route("/")
@@ -8,4 +9,3 @@ router
   .all(methodNotAllowed);
 
   module.exports = router;
-  

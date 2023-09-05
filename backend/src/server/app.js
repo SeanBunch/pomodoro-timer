@@ -1,18 +1,19 @@
 const express = require("express");
 const cors = require("cors");
 
-const tasklistRouter = require("../tasklist/tasklist.router");
+const taskListRouter = require("../tasklist/tasklist.router");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
+app.use("/tasklist", taskListRouter);
+
 app.use("/", (req, res, next) => {
     res.json({ data: "pomotime server online" })
-})
+});
 
-app.use("/tasklist", tasklistRouter)
 
 
 // not found handler
