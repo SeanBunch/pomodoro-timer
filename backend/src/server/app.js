@@ -1,7 +1,10 @@
+const notFound = require("../errors/notFound");
+const errorHandler = require("../errors/errorHandler");
+const taskListRouter = require("../tasklist/tasklist.router");
+
 const express = require("express");
 const cors = require("cors");
 
-const taskListRouter = require("../tasklist/tasklist.router");
 
 const app = express();
 
@@ -17,15 +20,9 @@ app.use("/", (req, res, next) => {
 
 
 // not found handler
-app.use((request, response, next) => {
-    next(`Not found: ${request.originalUrl}`)
-});
+app.use(notFound);
 
 // error handler
-app.use((error, req, res, next) => {
-    console.error(error);
-    const { status = 500, message = "server app error"} = error; 
-    res.status(status).json({ error: message });
-})
+app.use(errorHandler)
 
 module.exports = app;
