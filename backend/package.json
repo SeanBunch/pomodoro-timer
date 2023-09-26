@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "pomotime backend",
   "scripts": {
-    "dev": "nodemon src/server/server.js"
+    "dev": "nodemon src/server.js"
   },
   "author": "Sean Bunch",
   "license": "databaws",
