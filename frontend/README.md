@@ -22,3 +22,5 @@ The add task works. I added some security validation to the input field to preve
 The backend branch was started and soon I will convert the app to a full stack application with log in features. The front-end portion is mostly finished with some minor updates to the mobile UI design remaining. The app works as intended as a frontend application now the transition from frontend to full stack is next. 
 
 Started converting the app to use redux. Finshed with installing packages needed for redux-toolkit. START PAUSE button now works in redux. I will be converting each feature one by one to redux to update the app to a more modern state managment system. 
+
+Will be using Rudux-toolkit-query to make api calls to the backend. Also will be adding a log in feature so that users can save todo list.
