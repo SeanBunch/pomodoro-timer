@@ -1,17 +1,14 @@
 import React, { useState } from "react";
-import NewAccountModal from "./NewAccountModal";
 import "../../styling/Modal.css";
 
-function LogInModal({ setShowCircle }) {
-  const [ showModal, setShowModal ] = useState(false);
+function NewAccountModal() {
+  const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
-    setShowCircle(false);
     setShowModal(true);
   };
 
   const closeModal = () => {
-    setShowCircle(true);
     setShowModal(false);
   };
 
@@ -21,7 +18,7 @@ function LogInModal({ setShowCircle }) {
       alert(
         "Task must not include special characters !@#$%^&*()_+=[]{};':|,.<>/?~"
       );
-    }
+    } 
   };
 
   const handleSubmit = (e) => {
@@ -30,12 +27,12 @@ function LogInModal({ setShowCircle }) {
   };
 
   return (
-    <div>
+    <div className="center-div">
       <button
         onClick={openModal}
-        className="bg-black bdr10 wt  h30 w100px ml20 mr20"
+        className="bg-black bdr10 wt h30 w100px"
       >
-        Log in
+        Sign Up
       </button>
       {showModal && (
         <div className="modal">
@@ -43,41 +40,25 @@ function LogInModal({ setShowCircle }) {
             <div className="modal-content">
               <div className="container column">
                 <form onSubmit={handleSubmit}>
-                  <div className="container column mb50">
-                    <div>
-                      <input
-                        type="text"
-                        className="noborder h50 font25 mb20"
-                        // value={}
-                        placeholder="Username"
-                        onChange={(e) => {
-                          changeHandler("task", e.target.value);
-                        }}
-                        required
-                      />
-                    </div>
+                  <div className="container row mb50">
                     <div>
                       <input
                         type="text"
                         className="noborder h50 font25"
-                        // value={}
-                        placeholder="Password"
+                        placeholder="What are you workin on?"
                         onChange={(e) => {
                           changeHandler("task", e.target.value);
                         }}
                         required
                       />
                     </div>
-                    <p>
-                      Don't have an account? Sign up here: <NewAccountModal /> 
-                    </p>
                   </div>
                   <div className="container space-btw">
                     <button
                       type="submit"
                       className="bg-black bdr10 wt h30 w100px"
                     >
-                      Log in
+                      Save
                     </button>
                     <button
                       onClick={closeModal}
@@ -96,4 +77,4 @@ function LogInModal({ setShowCircle }) {
   );
 }
 
-export default LogInModal;
+export default NewAccountModal;

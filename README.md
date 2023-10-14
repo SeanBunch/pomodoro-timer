@@ -2,17 +2,19 @@
 
 ## Building software that keeps me focused. 
 
+Deployed version can be located here: [Pomodoro website](https://pomodoro-timer-qnxi.onrender.com)
+
 This the a picture of the desktop view. Change the lenght of time for pomotime, short, and long breaks in the settings tab.  
 
 ### Desktop view
-![appPhoto](./public/1.PNG)
+![appPhoto](./frontend/public/1.PNG)
 
 This is a mobile view of the app. I am still working on getting the mobile view. I will add hamburger menus and work with the pomotime, short, and long break buttons. 
 
 Still need to add login and add task features. However the pomodoro timer feature is working. The user can set the time, reset the time, change from short break and long break. I will be building the back end soon the add task feature.  
 
 ### Mobile View
-![mobileView](./public/2.PNG)
+![mobileView](./frontend/public/2.PNG)
 
 
 ### Updates
@@ -23,4 +25,8 @@ The backend branch was started and soon I will convert the app to a full stack a
 
 Started converting the app to use redux. Finshed with installing packages needed for redux-toolkit. START PAUSE button now works in redux. I will be converting each feature one by one to redux to update the app to a more modern state managment system. 
 
-Staging branch created to carefully test application after merge.
+Staging branch created to carefully test application after merges before deployment.
+
+Beginning to work on log in backend and front end. 
+
+Still have some more states that can be converted to redux. 
