@@ -1,6 +1,7 @@
 import React from "react";
 import "../styling/Hamburger.css";
 import PopupModal from "../components/modal/PopupModal";
+import LogInModal from "./modal/LogInModal";
 
 function Hamburger({ setShowCircle }) {
   return (
@@ -17,9 +18,9 @@ function Hamburger({ setShowCircle }) {
             />
           </li>
           <li>
-            <button className="bg-black bdr10 wt  h30 w100px ml20 mr20">
-              Login
-            </button>
+            <LogInModal
+              setShowCircle={setShowCircle}
+            />
           </li>
         </ul>
       </section>
