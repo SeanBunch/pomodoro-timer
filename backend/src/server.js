@@ -11,7 +11,6 @@ knex.migrate
   })
   .catch((error) => {
     console.error(error);
-    knex.destroy();
   });
 
 function listener() {
