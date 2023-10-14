@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import CircleTimer from "./CircleTimer";
-import PopupModal from "../components/modal/PopupModal";
 import AddTaskModal from "../components/modal/AddTaskModal";
 import TaskList from "./TaskList";
 import "../styling/App.css";
