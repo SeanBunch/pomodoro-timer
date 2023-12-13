@@ -9,6 +9,7 @@ const circleTimerSlice = createSlice({
             pomoTime: 25,
             shortBreak: 5,
             longBreak: 15,
+            btnSelected: "pomoTime",
             keyValue: 0,
         },
     },
@@ -28,10 +29,13 @@ const circleTimerSlice = createSlice({
         setLongBreak: (state, action) => {
             state.value.longBreak = action.payload;
         },
+        setBtnSelected: (state, action) => {
+            state.value.btnSelected = action.payload;
+        },
         setKeyValue: (state) => {state.value.keyValue += 1},
     },
 });
 
-export const { setAnimate, setDuration, setPomoTime, setLongBreak, setShortBreak, setKeyValue } = circleTimerSlice.actions;
+export const { setAnimate, setDuration, setPomoTime, setLongBreak, setShortBreak, setBtnSelected, setKeyValue } = circleTimerSlice.actions;
 
 export default circleTimerSlice.reducer;

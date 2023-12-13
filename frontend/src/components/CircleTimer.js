@@ -8,8 +8,14 @@ const CircleTimer = () => {
 
   const renderTime = ({ remainingTime }) => {
     if (remainingTime === 0) {
-      return <div className="font25 wt">Break Time...</div>;
-    }
+      if (timer.btnSelected === "pomoTime") {
+        return <div className="font25 wt">Break Time...</div>;
+      } else if (timer.btnSelected === "shortBreak") {
+        return <div className="font25 wt">Back to Work...</div>;
+      } else if (timer.btnSelected === "longBreak") {
+        return <div className="font25 wt">Back to Work...</div>;
+      };
+    };
   
     return (
       <div className="timer">

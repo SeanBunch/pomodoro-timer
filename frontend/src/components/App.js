@@ -5,7 +5,7 @@ import TaskList from "./TaskList";
 import "../styling/App.css";
 import Hamburger from "./Hamburger";
 import { useSelector, useDispatch } from "react-redux";
-import { setAnimate, setDuration, setKeyValue } from "./circleTimerSlice";
+import { setAnimate, setDuration,setBtnSelected, setKeyValue } from "./circleTimerSlice";
 
 function App() {
 
@@ -26,12 +26,15 @@ function App() {
 
     if (btnName === "pomoTime") {
       dispatch(setDuration(timer.pomoTime));
+      dispatch(setBtnSelected("pomoTime"));
       dispatch(setKeyValue());
     } else if (btnName === "shortBreak") {
       dispatch(setDuration(timer.shortBreak));
+      dispatch(setBtnSelected("shortBreak")); 
       dispatch(setKeyValue());
     } else if (btnName === "longBreak") {
       dispatch(setDuration(timer.longBreak));
+      dispatch(setBtnSelected("longBreak"));
       dispatch(setKeyValue());
     };
   };
