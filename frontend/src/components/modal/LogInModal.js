@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import NewAccountModal from "./NewAccountModal";
 import "../../styling/Modal.css";
 
@@ -31,12 +32,14 @@ function LogInModal({ setShowCircle }) {
 
   return (
     <div>
+      <Link to="http://localhost:5000/login/auth/google">
       <button
-        onClick={openModal}
+        // onClick={openModal}
         className="bg-black bdr10 wt  h30 w100px ml20 mr20"
       >
         Log in
       </button>
+      </Link>
       {showModal && (
         <div className="modal">
           <div className="overlay">

@@ -1,12 +1,14 @@
 const express = require("express");
+const app = express();
 const notFound = require("./errors/notFound");
 const errorHandler = require("./errors/errorHandler");
+const passport = require("passport");
+require('dotenv').config();
+const SESSION_SECRET = process.env.SESSION_SECRET;
 
 const taskListRouter = require("./tasklist/tasklist.router");
 const loginRouter = require("./login/login.router");
 const cors = require("cors");
-
-const app = express();
 const session = require("express-session");
 const KnexSessionStore = require("connect-session-knex")(session);
 const knex = require("./db/connection");
@@ -14,30 +16,43 @@ const store = new KnexSessionStore({
   knex,
   tablename: "sessions",
 });
+require("./login/auth")
 
 app.use(cors());
 app.use(express.json());
 
 app.use(
   session({
-    secret: "notell",
+    secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 10000,
+      maxAge: 1800000,
     },
-  store,
+    store,
   })
 );
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/tasklist", taskListRouter);
 app.use("/login", loginRouter);
+
+app.get("/google/callback",
+passport.authenticate("google", {
+  successRedirect: "/login/protected",
+  failureRedirect: "/login/failure",
+})
+);
+
+// app.use("/protected", loginRouter);
+// app.use("/auth/failure", loginRouter);
 
 app.use("/", (req, res, next) => {
   const n = req.session.views || 1;
   req.session.views = n + 1;
   res.json({ data: `pomotime server online with ${n} views` });
-  // res.end(`${n} views`);
+  res.end(`${n} views`);
 });
 
 // not found handler
@@ -45,5 +60,63 @@ app.use(notFound);
 
 // error handler
 app.use(errorHandler);
+// =========================================================================
+// =========================================================================
+// =========================================================================
+// =========================================================================
+// =========================================================================
+// =========================================================================
+// const express = require('express');
+// const session = require('express-session');
+// const passport = require('passport');
+// require('./auth');
+
+// const app = express();
+// =================================
+// =================================
+// =================================
+// require('dotenv').config();
+// const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+
+
+// function isLoggedIn(req, res, next) {
+//   req.user ? next() : res.sendStatus(401);
+// }
+
+// app.use(session({ secret: GOOGLE_CLIENT_SECRET, resave: false, saveUninitialized: true }));
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+// app.get('/', (req, res) => {
+//   res.send('<a href="/auth/google">Authenticate with Google</a>');
+// });
+
+// app.get('/auth/google',
+//   passport.authenticate('google', { scope: [ 'email', 'profile' ] }
+// ));
+
+// app.get( '/auth/google/callback',
+//   passport.authenticate( 'google', {
+//     successRedirect: '/protected',
+//     failureRedirect: '/auth/google/failure'
+//   })
+// );
+
+// app.get('/protected', isLoggedIn, (req, res) => {
+//   res.send(`Hello ${req.user.displayName}`);
+// });
+
+// app.get('/logout', (req, res) => {
+//   req.logout();
+//   req.session.destroy();
+//   res.send('Goodbye!');
+// });
+
+// app.get('/auth/google/failure', (req, res) => {
+//   res.send('Failed to authenticate..');
+// });
+
+
+
 
 module.exports = app;

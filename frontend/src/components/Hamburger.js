@@ -1,6 +1,6 @@
 import React from "react";
 import "../styling/Hamburger.css";
-import PopupModal from "../components/modal/PopupModal";
+import SettingsModal from "./modal/SettingsModal";
 import LogInModal from "./modal/LogInModal";
 
 function Hamburger({ setShowCircle }) {
@@ -13,11 +13,12 @@ function Hamburger({ setShowCircle }) {
         </label>
         <ul className="menu">
           <li>
-            <PopupModal
+            <SettingsModal
               setShowCircle={setShowCircle}
             />
           </li>
           <li>
+          
             <LogInModal
               setShowCircle={setShowCircle}
             />

@@ -11,6 +11,8 @@
     "react-countdown-circle-timer": "^3.2.1",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.1",
+    "react-router": "^6.21.0",
+    "react-router-dom": "^6.21.0",
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
     "redux-devtools-extension": "^2.13.9",

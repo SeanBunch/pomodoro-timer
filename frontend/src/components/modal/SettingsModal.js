@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setDuration, setPomoTime, setShortBreak, setLongBreak } from "../circleTimerSlice";
 import "../../styling/Modal.css";
 
-function PopupModal({ setShowCircle }) {
+function SettingsModal({ setShowCircle }) {
   const [ showModal, setShowModal ] = useState(false);
   const timer = useSelector((state) => state.circleTimer.value);
   const dispatch = useDispatch();
@@ -93,4 +93,4 @@ function PopupModal({ setShowCircle }) {
   );
 }
 
-export default PopupModal;
+export default SettingsModal;

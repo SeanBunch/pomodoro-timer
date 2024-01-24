@@ -14,7 +14,7 @@ return (
                     <div 
                     key={item[0]}
                     className="font25 wt">
-                        {item[1].task}
+                        {item[1].date} {item[1].time} {item[1].task}
                     </div>
                 ))}
             </div>

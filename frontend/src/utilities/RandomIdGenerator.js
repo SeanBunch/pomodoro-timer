@@ -1,5 +1,3 @@
-import React from "react";
-
 const RandomIdGenerator = () => {
   const idList = []
   const getRandomId = () => {

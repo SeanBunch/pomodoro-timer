@@ -4,7 +4,12 @@ import "../../styling/Modal.css";
 
 function AddTaskModal({ taskList, setTaskList }) {
   const [showModal, setShowModal] = useState(false);
-  const [newTask, setNewTask] = useState({ task: "", complete: false });
+  const [newTask, setNewTask] = useState({ 
+    date: "", 
+    time: "", 
+    task: "", 
+    status: false 
+  });
 
   const openModal = () => {
     setShowModal(true);
@@ -15,7 +20,9 @@ function AddTaskModal({ taskList, setTaskList }) {
   };
 
   const changeHandler = (task, value) => {
-    const specialChars = /[`!@#$%^&*()_+\=\[\]{};':"\\|,.<>\/?~]/;
+    // removed the " : " out of the special caracter list. 
+    // The original was this: const specialChars = /[`!@#$%^&*()_+\=\[\]{};':"\\|,.<>\/?~]/;
+    const specialChars = /[`!@#$%^&*()_+\=\[\]{};'"\\|,.<>\/?~]/;
     if (specialChars.test(value)) {
       alert(
         "Task must not include special characters !@#$%^&*()_+=[]{};':|,.<>/?~"
@@ -49,7 +56,23 @@ function AddTaskModal({ taskList, setTaskList }) {
               <div className="container column">
                 <form onSubmit={handleSubmit}>
                   <div className="container row mb50">
-                    <div>
+                    <div className="container column">
+                      <input
+                        type="date"
+                        className="noborder h50 font25"
+                        value={taskList.date}
+                        onChange={(e) => {
+                        changeHandler("date", e.target.value);
+                        }}
+                      />
+                      <input
+                        type="time"
+                        className="noborder h50 font25"
+                        value={taskList.date}
+                        onChange={(e) => {
+                        changeHandler("time", e.target.value);
+                        }}
+                      />
                       <input
                         type="text"
                         className="noborder h50 font25"
