@@ -37,10 +37,12 @@ app.use(passport.session());
 
 app.use("/tasklist", taskListRouter);
 app.use("/login", loginRouter);
+// app.use("/login/auth/google", 
+// passport.authenticate("google", { scope: ["email", "profile"] }))
 
 app.get("/google/callback",
 passport.authenticate("google", {
-  successRedirect: "/login/protected",
+  successRedirect: "http://localhost:3000",
   failureRedirect: "/login/failure",
 })
 );

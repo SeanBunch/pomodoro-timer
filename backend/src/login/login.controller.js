@@ -13,15 +13,19 @@ async function authMessage(req, res, next) {
 //     failureRedirect: "/auth/failure",
 //   })
 // }
+const auth = passport.authenticate("google", { scope: ["openid", "email", "profile"] });
 
-async function auth(req, res, next) {
-  passport.authenticate("google", { scope: ["email", "profile"] });
-  // res.json({data: "you have reach /login/auth/google"})
+function isLoggedIn(req, res, next) {
+  if(req.user) {
+    return next()
+  }
+  next(res.sendStatus(401))
+  
 }
 
-
 async function protected(req, res, next) {
-  res.send("hello! you are protected");
+  console.log(req.user)
+  res.send(`hello! you are protected ${req.user.displayName}`);
 }
 
 async function authFail(req, res) {
@@ -29,9 +33,9 @@ async function authFail(req, res) {
 }
 
 module.exports = {
-  authMessage: authMessage,
-  auth: auth,
-  authFail: authFail,
-  protected: protected,
-  // callback: callback,
+  authMessage: [authMessage],
+  auth: [auth],
+  authFail: [authFail],
+  protected: [isLoggedIn, protected],
+  // callback: [callback],
 };

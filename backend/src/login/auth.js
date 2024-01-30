@@ -11,10 +11,10 @@ passport.use(new GoogleStrategy({
     passReqToCallback   : true
   },
   (request, accessToken, refreshToken, profile, done) => {
-    User.findOrCreate({ googleId: profile.id }, (err, user) => {
-      return done(err, user);
-    });
-    // return done(err, profile);
+    // User.findOrCreate({ googleId: profile.id }, (err, user) => {
+    //   return done(err, user);
+    // });
+    return done(null, profile);
   }
 ));
 
