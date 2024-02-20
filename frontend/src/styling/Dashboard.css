@@ -1,0 +1,154 @@
+body {
+    background-color: rgb(54, 53, 53);
+  }
+  .red-bg-white-text {
+    background-color: #780000;
+    color: #ffffff;
+  }
+  .center-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    display: flex;
+  }
+  .column {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .row {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .space-btw {
+    justify-content: space-between;
+  }
+  li {
+    list-style: none;
+  }
+  button {
+    border: none;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+  .mw50 {
+    min-width: 50%;
+  }
+  .mw75 {
+    min-width: 25%;
+  }
+  .w100 {
+    width: 100%;
+  }
+  .w100px {
+    width: 100px;
+  }
+  .frame {
+    border: 5px solid black;
+  }
+  .btnborder-red {
+    border: 5px outset #780000;
+  }
+  .btnborder-ltred {
+    border: 5px outset #b40000;
+  }
+  .btnborder-blk {
+    border: 5px outset black;
+  }
+  .btnfocus:focus {
+    border: 5px outset #b40000;
+  }
+  .noborder {
+    border: none;
+  }
+  .even {
+    justify-content: space-evenly;
+  }
+  .wt {
+    color: #fafafa;
+  }
+  .bt {
+    color: black;
+  }
+  .bg-dkred {
+    background-color: #780000;
+  }
+  .bg-black {
+    background-color: rgb(0, 0, 0);
+  }
+  .bg-purple {
+    background-color: #544269;
+  }
+  .bg-ltred {
+    background-color: #924d4d;
+  }
+  .bdr10 {
+    border-radius: 10px;
+  }
+  .grow {
+    flex-grow: 1;
+  }
+  .left {
+    justify-content: flex-end;
+    align-items: end;
+  }
+  .pl10 {
+    padding-left: 10px;
+  }
+  .pl20 {
+    padding-left: 20px;
+  }
+  .mr20 {
+    margin-right: 20px;
+  }
+  .mb10 {
+    margin-bottom: 10px;
+  }
+  .mb20 {
+    margin-bottom: 20px;
+  }
+  .mb50 {
+    margin-bottom: 50px;
+  }
+  .mb100 {
+    margin-bottom: 100px;
+  }
+  .mt20 {
+    margin-top: 20px;
+  }
+  .ml20 {
+    margin-left: 20px;
+  }
+  .test {
+    color: #b46d6d;
+  }
+  .h50 {
+    height: 50px;
+  }
+  .h20 {
+    height: 20px;
+  }
+  .h30 {
+    height: 30px;
+  }
+  .font80 {
+    font-size: 80px;
+  }
+  .font65 {
+    font-size: 65px;
+  }
+  .font25 {
+    font-size: 25px;
+  }
+  /* 003049 dark blue */
+  /* 669bbc light blue */
+  /* c1121e bright red */
+  /* 780000 dark red */
+  /* fdf0d5 cream white */
+  /* 5f4e74 purple color */
+  /* #544269 nice purple */
+  

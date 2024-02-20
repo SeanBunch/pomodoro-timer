@@ -13,6 +13,7 @@ const authCallback = passport.authenticate("google", {
   failureRedirect: "/login/failure",
 });
 
+
 function isLoggedIn(req, res, next) {
   if(req.user) {
     return next()
