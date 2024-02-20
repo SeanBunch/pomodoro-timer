@@ -6,13 +6,13 @@ function AddTaskModal({ taskList, setTaskList }) {
   const [ showModal, setShowModal ] = useState(false);
   const [ newTask, setNewTask ] = useState("")
 
+  // setShowCircle(false);
   const openModal = () => {
-    // setShowCircle(false);
     setShowModal(true);
   };
 
+  // setShowCircle(true);
   const closeModal = () => {
-    // setShowCircle(true);
     setShowModal(false);
   };
 

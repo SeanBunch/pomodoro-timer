@@ -12,10 +12,10 @@ router
   .get(controller.auth)
   .all(methodNotAllowed)
 
-// router
-// .route("google/callback")
-// .get(controller.callback)
-// .all(methodNotAllowed)
+  router
+  .route("/google/callback") 
+  .get(controller.authCallback)
+  .all(methodNotAllowed)
 
 router
 .route("/protected")

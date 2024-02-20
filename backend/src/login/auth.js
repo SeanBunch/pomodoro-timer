@@ -13,12 +13,13 @@ passport.use(new GoogleStrategy({
   (request, accessToken, refreshToken, profile, done) => {
     // User.findOrCreate({ googleId: profile.id }, (err, user) => {
     //   return done(err, user);
-    // });
+    // });  
     return done(null, profile);
   }
 ));
 
 passport.serializeUser((user, done) => {
+  console.log("Serializing user:", user);
     done(null, user);
   });
 

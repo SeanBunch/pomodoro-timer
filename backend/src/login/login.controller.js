@@ -7,13 +7,11 @@ async function authMessage(req, res, next) {
   res.json({ data: "you have reached login" });
 }
 
-// async function callback() {
-//   passport.authenticate("google", {
-//     successRedirect: "/protected",
-//     failureRedirect: "/auth/failure",
-//   })
-// }
 const auth = passport.authenticate("google", { scope: ["openid", "email", "profile"] });
+const authCallback = passport.authenticate("google", {
+  successRedirect: "http://localhost:3000",
+  failureRedirect: "/login/failure",
+});
 
 function isLoggedIn(req, res, next) {
   if(req.user) {
@@ -37,5 +35,5 @@ module.exports = {
   auth: [auth],
   authFail: [authFail],
   protected: [isLoggedIn, protected],
-  // callback: [callback],
+  authCallback: [authCallback],
 };

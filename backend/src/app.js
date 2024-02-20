@@ -37,18 +37,7 @@ app.use(passport.session());
 
 app.use("/tasklist", taskListRouter);
 app.use("/login", loginRouter);
-// app.use("/login/auth/google", 
-// passport.authenticate("google", { scope: ["email", "profile"] }))
-
-app.get("/google/callback",
-passport.authenticate("google", {
-  successRedirect: "http://localhost:3000",
-  failureRedirect: "/login/failure",
-})
-);
-
-// app.use("/protected", loginRouter);
-// app.use("/auth/failure", loginRouter);
+app.get("/google/callback", loginRouter);
 
 app.use("/", (req, res, next) => {
   const n = req.session.views || 1;
@@ -62,63 +51,5 @@ app.use(notFound);
 
 // error handler
 app.use(errorHandler);
-// =========================================================================
-// =========================================================================
-// =========================================================================
-// =========================================================================
-// =========================================================================
-// =========================================================================
-// const express = require('express');
-// const session = require('express-session');
-// const passport = require('passport');
-// require('./auth');
-
-// const app = express();
-// =================================
-// =================================
-// =================================
-// require('dotenv').config();
-// const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
-
-
-// function isLoggedIn(req, res, next) {
-//   req.user ? next() : res.sendStatus(401);
-// }
-
-// app.use(session({ secret: GOOGLE_CLIENT_SECRET, resave: false, saveUninitialized: true }));
-// app.use(passport.initialize());
-// app.use(passport.session());
-
-// app.get('/', (req, res) => {
-//   res.send('<a href="/auth/google">Authenticate with Google</a>');
-// });
-
-// app.get('/auth/google',
-//   passport.authenticate('google', { scope: [ 'email', 'profile' ] }
-// ));
-
-// app.get( '/auth/google/callback',
-//   passport.authenticate( 'google', {
-//     successRedirect: '/protected',
-//     failureRedirect: '/auth/google/failure'
-//   })
-// );
-
-// app.get('/protected', isLoggedIn, (req, res) => {
-//   res.send(`Hello ${req.user.displayName}`);
-// });
-
-// app.get('/logout', (req, res) => {
-//   req.logout();
-//   req.session.destroy();
-//   res.send('Goodbye!');
-// });
-
-// app.get('/auth/google/failure', (req, res) => {
-//   res.send('Failed to authenticate..');
-// });
-
-
-
 
 module.exports = app;
