@@ -19,9 +19,8 @@ function Hamburger({ setShowCircle }) {
           </li>
           <li>
           
-            <LogInModal
-              setShowCircle={setShowCircle}
-            />
+            <LogInModal />   
+            
           </li>
         </ul>
       </section>

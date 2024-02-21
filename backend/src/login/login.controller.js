@@ -9,8 +9,8 @@ async function authMessage(req, res, next) {
 
 const auth = passport.authenticate("google", { scope: ["openid", "email", "profile"] });
 const authCallback = passport.authenticate("google", {
-  successRedirect: "http://localhost:3000",
-  failureRedirect: "/login/failure",
+  successRedirect: "http://localhost:3000/login/active",
+  failureRedirect: "http://localhost:3000/login/error",
 });
 
 

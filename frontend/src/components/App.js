@@ -58,7 +58,10 @@ return (
 
       <Route exact path="/" element={ <Dashboard />}/>
 
-      <Route exact path="/loggedin" element={ <Dashboard />}/>
+      <Route exact path="/login/active" element={ <Dashboard />}/>
+      <Route exact path="/login/error">
+        Error login in. Please try again!
+      </Route>
 
       </Routes>
   </div>
