@@ -1,4 +1,4 @@
-const service = require("./login.service");
+// const service = require("./login.service");
 // const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 const passport = require("passport");
 require("./auth");
@@ -14,27 +14,18 @@ const authCallback = passport.authenticate("google", {
 });
 
 
-function isLoggedIn(req, res, next) {
-  if(req.user) {
-    return next()
+function isAuth(req, res, next) {
+  if (req.user) {
+    res.json(req.user);
+  } else {
+    res.status(401).send("User not logged in.");
   }
-  next(res.sendStatus(401))
-  
 }
 
-async function protected(req, res, next) {
-  console.log(req.user)
-  res.send(`hello! you are protected ${req.user.displayName}`);
-}
-
-async function authFail(req, res) {
-  res.send("something went wrong...");
-}
 
 module.exports = {
   authMessage: [authMessage],
   auth: [auth],
-  authFail: [authFail],
-  protected: [isLoggedIn, protected],
   authCallback: [authCallback],
+  isAuth: [isAuth],
 };

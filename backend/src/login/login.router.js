@@ -12,20 +12,17 @@ router
   .get(controller.auth)
   .all(methodNotAllowed)
 
-  router
+router
   .route("/google/callback") 
   .get(controller.authCallback)
   .all(methodNotAllowed)
 
 router
-.route("/protected")
-.get(controller.protected)
-.all(methodNotAllowed)
+.route("/isAuth")
+.get(controller.isAuth)
 
-router
-.route("/failure")
-.get(controller.authFail)
-.all(methodNotAllowed)
+
+
 
 
 module.exports = router;

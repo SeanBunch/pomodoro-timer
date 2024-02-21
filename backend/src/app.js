@@ -12,13 +12,14 @@ const cors = require("cors");
 const session = require("express-session");
 const KnexSessionStore = require("connect-session-knex")(session);
 const knex = require("./db/connection");
+const loginController = require("./login/login.controller");
 const store = new KnexSessionStore({
   knex,
   tablename: "sessions",
 });
 require("./login/auth")
 
-app.use(cors());
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use(express.json());
 
 app.use(
@@ -37,7 +38,6 @@ app.use(passport.session());
 
 app.use("/tasklist", taskListRouter);
 app.use("/login", loginRouter);
-app.get("/google/callback", loginRouter);
 
 app.use("/", (req, res, next) => {
   const n = req.session.views || 1;
