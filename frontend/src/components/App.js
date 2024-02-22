@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./Dashboard";
+import { useDispatch } from "react-redux";
+import { setAuthUser, setIsAuthenticated } from "../userSlice";
 
 function App() {
+
+  const dispatch = useDispatch();
 
   // shows if user is authenticated 
   const fetchUser = async () => {
@@ -15,9 +19,11 @@ function App() {
 
     if (response && response.data) {
       console.log("User:", response.data);
+      dispatch(setIsAuthenticated(true));
+      dispatch(setAuthUser(response.data));
     }
   };
-// fetchUser();
+fetchUser();
 
   return (
     <div>

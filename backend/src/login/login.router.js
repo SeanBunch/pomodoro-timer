@@ -21,6 +21,11 @@ router
 .route("/isAuth")
 .get(controller.isAuth)
 
+router
+.route("/logout")
+.get(controller.logout)
+.all(methodNotAllowed)
+
 
 
 

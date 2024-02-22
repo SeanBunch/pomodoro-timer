@@ -22,10 +22,15 @@ function isAuth(req, res, next) {
   }
 }
 
+function logout(req, res, next) {
+  req.sesson.destroy();
+  res.send("Thank you!");
+}
 
 module.exports = {
   authMessage: [authMessage],
   auth: [auth],
   authCallback: [authCallback],
   isAuth: [isAuth],
+  logout: [logout],
 };

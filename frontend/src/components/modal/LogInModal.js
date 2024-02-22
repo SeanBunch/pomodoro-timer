@@ -1,18 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styling/Modal.css";
+import { useSelector } from "react-redux";
+import LoginLink from "../LoginBtn";
+import LogoutBtn from "../LogoutBtn";
 
 function LogInModal() {
 
+//   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.value)
+
+
   return (
     <div>
-      <Link to="http://localhost:5000/login/auth/google">
-      <button
-        className="bg-black bdr10 wt  h30 w100px ml20 mr20"
-      >
-        Log in
-      </button>
-      </Link>
+      {user.isAuthenticated ? (<LogoutBtn />) : (<LoginLink />) }
     </div>
   );
 };
